@@ -1,6 +1,7 @@
 ﻿using SweetsFactory.Classes.CPosada;
 using System.Collections.Generic;
 
+
 namespace SweetsFactory.Classes.Bases.CBasePosads
 {
     public static class BasePosadas
@@ -23,5 +24,7 @@ namespace SweetsFactory.Classes.Bases.CBasePosads
         {
             return ref posads;
         }
+
+        
     }
 }

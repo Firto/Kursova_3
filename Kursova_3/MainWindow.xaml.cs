@@ -17,16 +17,18 @@ namespace SweetsFactory
 {
     public partial class MainWindow : Window
     {
-        public void OnChangeCrrentFrame() {
+        void OnChangeCrrentFrame() {
             MainFrm.Content = VARS.CurrentPage;
         }
 
         public MainWindow()
         {
             InitializeComponent();
-            VARS.onChangeCurrentPage = OnChangeCrrentFrame;
-            VARS.onChangeCurrentPage();
+            VARS.onChangeCurrentPage += OnChangeCrrentFrame;
+            OnChangeCrrentFrame();
+            VARS.mainWnd = this;
         }
 
+        
     }
 }

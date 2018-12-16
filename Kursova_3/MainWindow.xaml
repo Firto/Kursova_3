@@ -30,6 +30,6 @@
                 </Border>
             </StackPanel>
         </Grid>
-        <Frame Grid.Row="1" Name="MainFrm"/>
+        <Frame Grid.Row="1" Name="MainFrm" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

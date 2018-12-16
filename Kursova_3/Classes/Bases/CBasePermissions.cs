@@ -8,19 +8,23 @@ namespace SweetsFactory.Classes.Bases.CBasePermissions
         public static Permission GetPerms() => new Permission
         {
             Permitted = true,
-            Tittle = "Налаштування",
-            childPermissions = new List<Permission>
+            Tittle = "Налаштування профілю",
+            
+            ChildPermissions = new List<Permission>
             {
                 new Permission{
                     Permitted = true,
+                    IDFunc = 1,
                     Tittle = "Змінити логін",
                 },
                 new Permission{
                     Permitted = true,
+                    IDFunc = 2,
                     Tittle = "Змінити пароль",
                 },
                 new Permission{
                     Permitted = true,
+                    IDFunc = 3,
                     Tittle = "Змінити пошту",
                 }
             }
@@ -33,7 +37,7 @@ namespace SweetsFactory.Classes.Bases.CBasePermissions
         {
             Permitted = true,
             Tittle = "Головна",
-            childPermissions = new List<Permission>
+            ChildPermissions = new List<Permission>
             {
                 ProffilePermissions.GetPerms()
             }

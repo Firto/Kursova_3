@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SweetsFactory.Classes.CWorkPerson;
+using SweetsFactory.Classes.CSecurity;
 
 namespace SweetsFactory.Classes.Bases.CBaseFactory
 {
@@ -19,6 +20,11 @@ namespace SweetsFactory.Classes.Bases.CBaseFactory
 
         public ref List<WorkPerson> GetWorksPersons() {
             return ref workers;
+        }
+
+        public WorkPerson IsIssetUser(string Login)
+        {
+            return workers.Find((x) => x.UserName == Login);
         }
     }
 }

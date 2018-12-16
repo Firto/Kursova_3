@@ -1,0 +1,63 @@
+﻿<Page x:Class="SweetsFactory.Pages.AllovedLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SweetsFactory.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AllovedLogin">
+
+    <Grid Background="Wheat">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border 
+            Margin="10"
+            CornerRadius="4"
+            Grid.Column="0"
+            Grid.Row="1">
+            <Frame Name="frmMain" NavigationUIVisibility="Hidden" />
+        </Border>
+        <Border 
+                    Margin="5"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Background="#FF78B2E2"
+                    CornerRadius="4">
+            <ScrollViewer 
+                        VerticalScrollBarVisibility="Disabled"
+                        HorizontalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Horizontal" Name="PathPermissions" >
+
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="10"
+            Background="#FFE6C381"
+            CornerRadius="4">
+            <Grid>
+                <ScrollViewer
+                        Grid.Row="1"
+                        VerticalScrollBarVisibility="Disabled"
+                        HorizontalScrollBarVisibility="Auto">
+                    <StackPanel Name="Perms" >
+                        <Border Grid.Column="1" Style="{StaticResource BprderButFort}">
+                            <Label  Content="Contacts" Style="{StaticResource ButtonFort}" />
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+       
+       
+    </Grid>
+</Page>
