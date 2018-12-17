@@ -12,12 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SweetsFactory.VVARS;
+using SweetsFactory.Classes.CMessage;
 
 namespace SweetsFactory
 {
     public partial class MainWindow : Window
     {
-        void OnChangeCrrentFrame() {
+        void OnChangeCrrentFrame()
+        {
             MainFrm.Content = VARS.CurrentPage;
         }
 
@@ -27,8 +29,20 @@ namespace SweetsFactory
             VARS.onChangeCurrentPage += OnChangeCrrentFrame;
             OnChangeCrrentFrame();
             VARS.mainWnd = this;
+            VARS.globalMessage.onShowMessage += ShowMessage;
+            VARS.globalMessage.onHideMessage += HideMessage;
         }
 
-        
+        void ShowMessage(string str, TypesMessageEnumerstion type)
+        {
+            HeightPoleForMessage.Height = new GridLength(50, GridUnitType.Pixel);
+            PoleForMessage.Content = str;
+        }
+        void HideMessage()
+        {
+            HeightPoleForMessage.Height = new GridLength(0, GridUnitType.Pixel);
+        }
+
+
     }
 }

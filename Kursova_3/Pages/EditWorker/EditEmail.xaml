@@ -1,4 +1,4 @@
-﻿<Page x:Class="SweetsFactory.Pages.EditWorker.EditPassword"
+﻿<Page x:Class="SweetsFactory.Pages.EditWorker.EditEmail"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,20 +6,20 @@
       xmlns:local="clr-namespace:SweetsFactory.Pages.EditWorker"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditPassword">
+      Title="EditEmail">
+
     <Grid>
         <Border 
             CornerRadius="4" 
             Grid.Column="1" 
             VerticalAlignment="Stretch" 
             HorizontalAlignment="Stretch" 
-            MaxWidth="500" MaxHeight="250" 
+            MaxWidth="500" MaxHeight="200" 
             Background="#FFE6C381">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition Height="50"/>
-                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
@@ -28,7 +28,7 @@
                        FontSize="20" 
                        Foreground="White" 
                        FontWeight="Bold"
-                       Content="Зміна паролю"/>
+                       Content="Зміна емейла"/>
                 <Border Name="Messgae" VerticalAlignment="Stretch"
                         HorizontalAlignment="Center" 
                         Grid.Row="1" 
@@ -45,7 +45,7 @@
                         Content=""/>
                 </Border>
                 <Border Background="#FFE4A225" Height="3" Margin="10, 0, 10, 0" VerticalAlignment="Bottom"/>
-                <Label Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FFAC6E23" FontSize="30" >Старий пароль</Label>
+                <Label Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FFAC6E23" FontSize="30" >Новий емейл</Label>
                 <Border
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Stretch" 
@@ -53,24 +53,8 @@
                         Grid.Row="2"
                         Margin="250, 0, 10,0"
                         Background="#FF856323">
-                    <PasswordBox
-                        Name="lastPass"
-                  
-                        Margin="4"
-                        FontSize="30"
-                        Background="#FFE2FFC0"
-                        FontWeight="Bold"/>
-                </Border>
-                <Label Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FFAC6E23" FontSize="30" >Новий пароль</Label>
-                <Border
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Stretch" 
-                        CornerRadius="4" 
-                        Grid.Row="3"
-                        Margin="250, 0, 10,0"
-                        Background="#FF856323">
-                    <PasswordBox
-                        Name="newPass"
+                    <TextBox
+                        Name="newEmail"
                         Margin="4" 
                         FontSize="30"
                         Background="#FFE2FFC0"

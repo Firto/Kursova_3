@@ -6,19 +6,35 @@ using SweetsFactory.Classes.Bases.CBasePermissions;
 using SweetsFactory.Classes.CPosada;
 using System.Collections.Generic;
 using SweetsFactory.Pages;
+using SweetsFactory.Classes.CMessage;
+using System;
+
 namespace SweetsFactory.VVARS
 {
-    
+    static class VARS
+    {
+        // Delegates
 
-    static class VARS {
         public delegate void OnChange();
+        public delegate void ShowMessage(string str);
+
+        // Events
+
         public static event OnChange onChangeCurrentPage;
         public static event OnChange onChangeCurrentLoginPage;
-        public static Classes.CWorkPerson.WorkPerson currentUser;
+
+        // GlobalMessage
+
+        public static Message globalMessage = new Message();
+
+        // Current Pages
+
         static Page currentPage;
         static Page currentLoginPage;
         public static MainWindow mainWnd;
-        public static Page CurrentPage {
+
+        public static Page CurrentPage
+        {
             get => currentPage;
             set
             {
@@ -26,6 +42,7 @@ namespace SweetsFactory.VVARS
                 onChangeCurrentPage?.Invoke();
             }
         }
+
         public static Page CurrentLoginPage
         {
             get => currentLoginPage;
@@ -35,11 +52,20 @@ namespace SweetsFactory.VVARS
                 onChangeCurrentLoginPage?.Invoke();
             }
         }
+
+        // All Pages
+
         public static List<Page> pages;
         public static List<Page> loginPages;
         public static BaseFactory factory;
 
-        static VARS(){
+        // Current User
+
+        public static Classes.CWorkPerson.WorkPerson currentUser;
+       
+        static VARS()
+        {
+
             // Pages
 
             pages = new List<Page>();
@@ -48,22 +74,19 @@ namespace SweetsFactory.VVARS
 
             loginPages = new List<Page>();
             loginPages.Add(new Pages.EditWorker.EditPassword());
+            loginPages.Add(new Pages.EditWorker.EditLogin());
+            loginPages.Add(new Pages.EditWorker.EditEmail());
 
             currentPage = pages[(int)PegesEnumeration.Login];
 
-
-
-            //pages.ForEach((x) =>
-            //{
-            //    x.ShowsNavigationUI = false;
-            //});
             // Ініціалізуєм массив прцівників
 
             factory = new BaseFactory();
 
             // Init Admin Posada
 
-            BasePosadas.AddPosada(new Posada {
+            BasePosadas.AddPosada(new Posada
+            {
                 MustWork = "Слідкувати за базою данних!",
                 Salary = 1000000,
                 Tittle = "Адмін",
@@ -79,7 +102,8 @@ namespace SweetsFactory.VVARS
                     Birthday = new Classes.CBirthdayDate.BDate(2003, 8, 29),
                     Password = "admin",
                     Email = "profliste@gmail.com",
-                    FName = new Classes.CSNL.SNL {
+                    FName = new Classes.CSNL.SNL
+                    {
                         Name = "Сергій",
                         Lastname = "Степанчук",
                         Sername = "Тарасович"

@@ -8,5 +8,7 @@
     public enum PegesLoginEnumeration
     {
         NewPassword = 0,
+        EditLogin,
+        EditEmail
     }
 }

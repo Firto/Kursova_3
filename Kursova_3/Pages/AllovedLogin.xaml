@@ -11,7 +11,7 @@
     <Grid Background="Wheat">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="260" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -29,7 +29,8 @@
                     Grid.Row="0"
                     Grid.ColumnSpan="2"
                     Background="#FF78B2E2"
-                    CornerRadius="4">
+                    CornerRadius="4"
+                    Padding="10, 0, 10, 0">
             <ScrollViewer 
                         VerticalScrollBarVisibility="Disabled"
                         HorizontalScrollBarVisibility="Auto">
@@ -45,8 +46,12 @@
             Background="#FFE6C381"
             CornerRadius="4">
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="0" Name="ShowHideBack" />
+                </Grid.RowDefinitions>
                 <ScrollViewer
-                        Grid.Row="1"
+                        Grid.Row="0"
                         VerticalScrollBarVisibility="Disabled"
                         HorizontalScrollBarVisibility="Auto">
                     <StackPanel Name="Perms" >
@@ -55,6 +60,21 @@
                         </Border>
                     </StackPanel>
                 </ScrollViewer>
+                <Border 
+                    Grid.Row="1"
+                    Background="#FF49AFDE"
+                    Margin="5"
+                    CornerRadius="4"
+                    Style="{StaticResource StyleButtonBack}"
+                    MouseUp="BackPermission">
+                    <Label
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" 
+                        Content="BACK"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"/>
+                </Border>
             </Grid>
         </Border>
        

@@ -12,17 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SweetsFactory.Pages;
 using SweetsFactory.VVARS;
-using SweetsFactory.Classes.CSecurity;
 using SweetsFactory.Classes.CMessage;
 
 namespace SweetsFactory.Pages.EditWorker
 {
     /// <summary>
-    /// Interaction logic for EditPassword.xaml
+    /// Interaction logic for EditLogin.xaml
     /// </summary>
-    public partial class EditPassword : Page
+    public partial class EditLogin : Page
     {
 
         Message errorMesg = new Message();
@@ -38,7 +36,6 @@ namespace SweetsFactory.Pages.EditWorker
             Messgae.Height = 0;
         }
 
-
         public void OnChangeCrrentLoginFrame()
         {
             if (VARS.CurrentLoginPage == this)
@@ -47,18 +44,17 @@ namespace SweetsFactory.Pages.EditWorker
                 else
                 {
                     HideError();
-                    lastPass.Password = "";
-                    newPass.Password = "";
+                    newLogin.Text = "";
                 };
             }
         }
 
-        public EditPassword()
+        public EditLogin()
         {
             InitializeComponent();
+            VARS.onChangeCurrentLoginPage += OnChangeCrrentLoginFrame;
             errorMesg.onHideMessage += HideError;
             errorMesg.onShowMessage += ShowError;
-            VARS.onChangeCurrentLoginPage += OnChangeCrrentLoginFrame;
         }
 
 
@@ -75,13 +71,11 @@ namespace SweetsFactory.Pages.EditWorker
              VARS.CurrentPage = VARS.pages[(int)PegesEnumeration.AllowedLogin];
               */
 
-            if (lastPass.Password.Length == 0) { errorMesg.ShowMessage("Введіть старий пароль!", 7000, TypesMessageEnumerstion.Ok); return; }
-            if (newPass.Password.Length == 0) { errorMesg.ShowMessage("Введіть новий пароль!", 7000, TypesMessageEnumerstion.Ok); return; }
-            if (Security.GetCodePassword(lastPass.Password) != VARS.currentUser.Password) { errorMesg.ShowMessage("Не вірний старий пароль!", 7000, TypesMessageEnumerstion.Ok); return; }
-            if (Security.GetCodePassword(newPass.Password) == VARS.currentUser.Password) { errorMesg.ShowMessage("Потрібен НОВИЙ пароль!", 7000, TypesMessageEnumerstion.Ok); return; }
-            VARS.currentUser.Password = newPass.Password;
+            if (newLogin.Text.Length == 0) { errorMesg.ShowMessage("Введіть новий логін!", 7000,TypesMessageEnumerstion.Ok); return; }
+            if (newLogin.Text == VARS.currentUser.UserName) { errorMesg.ShowMessage("Потрібен НОВИЙ логін!", 7000, TypesMessageEnumerstion.Ok); return; }
+            VARS.currentUser.UserName = newLogin.Text;
             VARS.CurrentLoginPage = null;
-            VARS.globalMessage.ShowMessage("Пароль успішно змінений!", 7000, Classes.CMessage.TypesMessageEnumerstion.Ok);
+            VARS.globalMessage.ShowMessage("Логін успішно змінений!", 7000, Classes.CMessage.TypesMessageEnumerstion.Ok);
         }
 
         private void bback(object sender, MouseButtonEventArgs e)

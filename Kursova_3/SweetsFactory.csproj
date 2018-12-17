@@ -76,11 +76,20 @@
     <Compile Include="Classes\CSNL.cs" />
     <Compile Include="Classes\CWorkPerson.cs" />
     <Compile Include="Classes\CSecurity.cs" />
+    <Compile Include="Classes\CMessage.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AllovedLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditWorker\EditEmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditWorker\EditLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,6 +106,12 @@
     <Compile Include="Pages\AllovedLogin.xaml.cs">
       <DependentUpon>AllovedLogin.xaml</DependentUpon>
       <CustomToolNamespace>SweetsFactory.Pages.AllovedLogin</CustomToolNamespace>
+    </Compile>
+    <Compile Include="Pages\EditWorker\EditEmail.xaml.cs">
+      <DependentUpon>EditEmail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditWorker\EditLogin.xaml.cs">
+      <DependentUpon>EditLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditWorker\EditPassword.xaml.cs">
       <DependentUpon>EditPassword.xaml</DependentUpon>

@@ -64,6 +64,45 @@
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
+    <Style x:Key="Path_LblClick" TargetType="Label" BasedOn="{StaticResource Path_Lbl}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                    To="#FF0068FF" 
+                                    Storyboard.TargetProperty="(Label.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="HoldEnd" 
+                                    Duration="0:0:0.1"/>
+                            <ColorAnimation
+                                    To="#FF78B2E2" 
+                                    Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)" 
+                                    FillBehavior="HoldEnd" 
+                                    Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                    To="#FF78B2E2" 
+                                    Storyboard.TargetProperty="(Label.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="HoldEnd" 
+                                    Duration="0:0:0.1"/>
+                            <ColorAnimation
+                                    To="#FF0068FF" 
+                                    Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)" 
+                                    FillBehavior="HoldEnd" 
+                                    Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="BprderButFort" TargetType="Border">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -98,6 +137,38 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="StyleButtonBack" TargetType="Border">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                    To="#FF00AFFF" 
+                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="HoldEnd" 
+                                    Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                    To="#FF49AFDE" 
+                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                    FillBehavior="HoldEnd" 
+                                    Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    
+
     <Style x:Key="ButtonFort" TargetType="Label">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
